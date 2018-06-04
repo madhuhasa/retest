@@ -1,0 +1,18 @@
+#import numpy as np
+#import pandas as pd
+salary = []
+age = []
+name = []
+department = []
+for i in range(0,14):
+    n = str(input("Enter the name of the employee:"))
+    name.append(n)
+    a = int(input("Enter the age of the employee:"))
+    age.append(a)
+    s = int(input("Enter the salary of the employee"))
+    salary.append(s)
+    d = str(input("Enter the department of the employee"))
+    department.append(d)
+    
+Age = age.sort()
+print("sorted age of employees",Age)

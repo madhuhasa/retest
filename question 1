@@ -1,0 +1,33 @@
+# -*- coding: utf-8 -*-
+
+import pandas as pd
+import numpy as np
+from statistics import mode
+import matplotlib.pyplot as plt
+import seaborn as sns
+data = pd.read_csv("C:\\Users\\user\\Desktop\\New folder\\camera.csv")
+print(data.info())
+print()
+print(data.dtypes)
+print()
+print(data[['Model','Release date','Price']].head(25))
+print()
+print(data.describe())
+print()
+print('Summary Statistics for Price : ')
+print('Mean :',np.mean(data['Price']))
+print()
+print('Median :',np.median(data['Price']))
+print()
+print('Mode :',mode(data['Price']))
+print()
+price_1k = data[data['Price']>1000]
+plt.bar(price_1k['Release date'],price_1k['Price'])
+plt.xlabel('Release Date')
+plt.ylabel('Price')
+plt.title('Price>1000')
+
+corr = data.corr()
+sns.heatmap(corr, xticklabels=corr.columns,yticklabels=corr.columns)
+
+
